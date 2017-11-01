@@ -130,9 +130,16 @@ Promise.resolve()
             }
           })
           if (publish) {
-            sync(`npm version ${publish} --quiet`, { stdio: [0, 1, 2] })
-            sync(`npm version ${publish} --quiet`, { stdio: [0, 1, 2], cwd: 'dist' })
-            sync(`npm publish --quiet`, { stdio: [0, 1, 2], cwd: 'dist' })
+            ;[
+              'git config user.email "preup@gmail.com"',
+              'git config user.name "preup"',
+              `npm version ${publish} --quiet`
+            ].forEach(cmd => {
+              sync(cmd, { stdio: [0, 1, 2] })
+            })
+            ;[`npm version ${publish} --quiet`, `npm publish --quiet`].forEach(cmd => {
+              sync(cmd, { stdio: [0, 1, 2], cwd: 'dist' })
+            })
           }
         })
     )
