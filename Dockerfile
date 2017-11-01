@@ -1,7 +1,7 @@
 FROM node:alpine
 
-RUN apk update && apk upgrade && \
-  apk add --no-cache git
+RUN apk update && apk add --no-cache git && \
+  rm -rf /tmp/* /var/lib/apt/lists/* /var/cache/apk/*
 
 RUN git config --global user.email "preup@gmail.com"
 RUN git config --global user.name "preup"
