@@ -1,5 +1,7 @@
 # preup
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/osdevisnot/preup.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/osdevisnot/preup.svg)](https://travis-ci.org/osdevisnot/preup)
 
 ...
