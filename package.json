@@ -29,7 +29,7 @@
     "del": "3.0.0",
     "detective": "4.5.0",
     "less": "2.7.3",
-    "node-sass": "4.5.3",
+    "node-sass": "4.6.0",
     "postcss-copy-assets": "0.3.0",
     "postcss-unprefix": "2.1.1",
     "rollup": "0.50.0",
