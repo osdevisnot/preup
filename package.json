@@ -32,7 +32,7 @@
     "node-sass": "4.6.0",
     "postcss-copy-assets": "0.3.0",
     "postcss-unprefix": "2.1.1",
-    "rollup": "0.50.1",
+    "rollup": "0.51.2",
     "rollup-load-plugins": "0.3.0",
     "rollup-plugin-babel": "3.0.2",
     "rollup-plugin-commonjs": "8.2.6",
