@@ -17,7 +17,8 @@ module.exports = {
         modules: false,
         exclude: ['transform-regenerator', 'transform-es2015-typeof-symbol']
       }
-    ]
+    ],
+    require.resolve('babel-preset-react')
   ],
   plugins: [
     require.resolve('babel-plugin-angularjs-annotate'),
@@ -27,7 +28,8 @@ module.exports = {
         useBuiltIns: true
       }
     ],
-    require.resolve('babel-plugin-external-helpers')
+    require.resolve('babel-plugin-external-helpers'),
+    require.resolve('babel-plugin-transform-class-properties')
   ],
   externalHelpersWhitelist: babelHelpers.list.filter(helperName => helperName !== 'asyncGenerator')
 }
