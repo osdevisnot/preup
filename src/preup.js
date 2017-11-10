@@ -55,8 +55,8 @@ const htmlMinifierOptions = {
 
 Promise.resolve()
   /**
-  * Clean the dist folder
-  */
+   * Clean the dist folder
+   */
   .then(() => del(['dist/*']))
   /**
    * Run build
@@ -71,6 +71,7 @@ Promise.resolve()
             $.replace(replacements),
             $.html({ htmlMinifierOptions }),
             $.json({ preferConst: true }),
+            $.image(),
             $.postcss({
               preprocessor,
               extract: `dist/${libraryName}.css`,
@@ -83,7 +84,9 @@ Promise.resolve()
                 addExternalHelpersPlugin: false,
                 externalHelpers: true,
                 config: babel,
-                exclude: 'node_modules/**'
+                exclude: 'node_modules/**',
+                addModuleOptions: false,
+                babelrc: false
               })
             ),
             $.commonjs(),
@@ -92,8 +95,8 @@ Promise.resolve()
           ]
         })
         /**
-        * Write the bundle
-        */
+         * Write the bundle
+         */
         .then(bundle =>
           bundle.write({
             name: libraryName,
@@ -102,8 +105,8 @@ Promise.resolve()
           })
         )
         /**
-        * Copy package.json and license files
-        */
+         * Copy package.json and license files
+         */
         .then(() => {
           // write license and npmrc file if found ...
           ;['LICENSE', '.npmrc'].forEach(file => copy(file))
