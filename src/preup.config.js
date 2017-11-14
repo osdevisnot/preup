@@ -48,7 +48,6 @@ const replacements = { '*': 'import', delimiters: ['import ', ' as'] }
  */
 const htmlMinifierOptions = {
   collapseWhitespace: true,
-  collapseBooleanAttributes: true,
   quoteCharacter: "'",
   removeComments: true
 }
