@@ -19,8 +19,14 @@
     "postpub": "docker push osdevisnot/preup"
   },
   "lint-staged": {
-    "*.{js,css,json}": ["prettier --single-quote --no-semi --print-width 120 --write", "git add"],
-    "*package.json": ["npm-sort", "git add"]
+    "*.{js,css}": [
+      "prettier --single-quote --no-semi --print-width 120 --write",
+      "git add"
+    ],
+    "*package.json": [
+      "npm-sort",
+      "git add"
+    ]
   },
   "dependencies": {
     "babel-core": "6.26.0",
