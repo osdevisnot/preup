@@ -6,7 +6,7 @@ abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
 
-acorn@^4.0.3:
+acorn@4.x, acorn@^4.0.3:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
@@ -2789,6 +2789,14 @@ rollup-plugin-babel@3.0.2:
   resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-3.0.2.tgz#a2765dea0eaa8aece351c983573300d17497495b"
   dependencies:
     rollup-pluginutils "^1.5.0"
+
+rollup-plugin-cleanup@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-cleanup/-/rollup-plugin-cleanup-2.0.0.tgz#85977319a3bf54750a9d75fb909c7e51f59a2da4"
+  dependencies:
+    acorn "4.x"
+    magic-string "^0.22.4"
+    rollup-pluginutils "^2.0.1"
 
 rollup-plugin-commonjs@8.2.6:
   version "8.2.6"

@@ -66,6 +66,7 @@ Promise.resolve()
       ].forEach(cmd => {
         sync(cmd, { stdio: [0, 1, 2] })
       })
+      // Redo the version command in `dist` directory to get correct version for publish
       ;[`npm version ${publish} --quiet`, `npm publish --quiet`].forEach(cmd => {
         sync(cmd, { stdio: [0, 1, 2], cwd: 'dist' })
       })
