@@ -27,6 +27,10 @@ Promise.resolve()
    */
   .then(_ => !isWatching && del(['dist/*']))
   /**
+   * Copy current package.json to dist for watch mode
+   */
+  .then(_ => isWatching && copy('package.json'))
+  /**
    * Rollup Compile
    */
   .then(_ => sync(command, { stdio: [0, 1, 2] }))
