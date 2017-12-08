@@ -41,7 +41,7 @@
     "detective": "4.7.0",
     "less": "2.7.3",
     "node-sass": "4.7.2",
-    "postcss-copy-assets": "0.3.0",
+    "postcss-copy-assets": "0.3.1",
     "postcss-unprefix": "2.1.1",
     "rollup": "0.52.1",
     "rollup-load-plugins": "0.3.0",
