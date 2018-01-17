@@ -25,7 +25,7 @@ Promise.resolve()
   /**
    * Clean the dist folder
    */
-  .then(_ => !isWatching && del(['dist/*']))
+  .then(_ => del(['dist/*']))
   /**
    * Copy current package.json to dist for watch mode
    */
