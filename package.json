@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "husky": "0.15.0-rc.2",
-    "lint-staged": "6.0.0",
+    "lint-staged": "6.0.1",
     "npm-sort": "0.0.4",
     "prettier": "1.10.2"
   }
