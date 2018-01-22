@@ -14,7 +14,7 @@
     "precommit": "lint-staged",
     "post-rewrite": "yarn",
     "post-merge": "yarn",
-    "prepub": "npm publish",
+    "prepub": "npm publish && git push --follow-tags",
     "pub": "docker build -t osdevisnot/preup .",
     "postpub": "docker push osdevisnot/preup"
   },
