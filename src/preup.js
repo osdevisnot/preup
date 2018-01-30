@@ -21,6 +21,8 @@ const rollupFlags = isWatching ? '-wc' : '-c'
 
 const command = `${rollupPath} ${rollupFlags} ${rollupConfig}`
 
+// console.log(command)
+
 Promise.resolve()
   /**
    * Clean the dist folder
