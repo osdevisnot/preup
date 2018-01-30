@@ -33,8 +33,6 @@
     "babelrc-rollup": "3.0.0",
     "del": "3.0.0",
     "detective": "5.0.2",
-    "less": "2.7.3",
-    "node-sass": "4.7.2",
     "postcss-copy-assets": "0.3.1",
     "postcss-unprefix": "2.1.1",
     "rollup": "0.55.1",

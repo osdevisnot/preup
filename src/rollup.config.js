@@ -11,7 +11,6 @@ const babelrc = require('babelrc-rollup').default
 const babel = require('./babel.js')
 const banner = require('./banner.js')
 
-const preprocessor = require('./preprocessor')
 const plugins = require('./postcss')
 
 /**
@@ -26,7 +25,6 @@ const libraryName = pkg.name.split('/').pop()
  */
 const htmlMinifierOptions = {
   collapseWhitespace: true,
-  collapseBooleanAttributes: true,
   quoteCharacter: "'",
   removeComments: true
 }
@@ -50,12 +48,8 @@ export default {
     $.json({ preferConst: true }),
     // inline images :(
     $.image(),
-    // process css using postcss with appropriate preprocessor
     $.postcss({
-      preprocessor, // TODO: node-sass resolves incorrect relative import paths
       extract: `dist/${libraryName}.css`,
-      to: `dist/${libraryName}.css`,
-      extensions: ['.scss', '.less', '.css'],
       plugins
     }),
     $.babel(
