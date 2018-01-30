@@ -5,15 +5,19 @@
     "preup": "./src/preup.js"
   },
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "post-rewrite": "yarn",
+      "post-merge": "yarn"
+    }
+  },
   "scripts": {
     "clean": "git clean -fdX",
     "postclean": "yarn --version || npm install -g yarn",
     "presetup": "npm run clean",
     "setup": "yarn",
     "postsetup": "npm link",
-    "precommit": "lint-staged",
-    "post-rewrite": "yarn",
-    "post-merge": "yarn",
     "prepub": "npm publish && git push --follow-tags",
     "pub": "docker build -t osdevisnot/preup .",
     "postpub": "docker push osdevisnot/preup"
