@@ -41,7 +41,7 @@ Promise.resolve()
    */
   .then(_ => {
     // write license and npmrc file if found ...
-    ;['LICENSE', '.npmrc'].forEach(file => copy(file))
+    ;['LICENSE'].forEach(file => copy(file))
     // detect dependencies ...
     const requires = detective(fs.readFileSync(path.join(process.cwd(), 'dist', `${libraryName}.js`), 'utf-8'))
     const release = { peerDependencies: {} }
@@ -60,7 +60,11 @@ Promise.resolve()
     fs.writeFileSync(path.join('dist', 'package.json'), JSON.stringify(release, null, '  '), 'utf-8')
     let publish = false
     ;['major', 'minor', 'patch'].forEach(rel => {
-      if ((process.argv[2] && process.argv[2] === rel) || (commit && commit.indexOf(`release ${rel}`) > -1)) {
+      if (
+        (process.argv[2] && process.argv[2] === rel) ||
+        (commit && commit.indexOf(`release ${rel}`) > -1) ||
+        (commit && commit.indexOf(`publish ${rel}`) > -1)
+      ) {
         publish = rel
       }
     })
