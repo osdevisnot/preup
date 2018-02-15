@@ -40,7 +40,7 @@
     "postcss-copy-assets": "0.3.1",
     "postcss-unprefix": "2.1.1",
     "postcss-value-parser": "3.3.0",
-    "rollup": "0.55.5",
+    "rollup": "0.56.0",
     "rollup-load-plugins": "0.3.0",
     "rollup-plugin-babel": "3.0.3",
     "rollup-plugin-cleanup": "2.0.0",
