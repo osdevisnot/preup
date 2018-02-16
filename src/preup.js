@@ -6,6 +6,8 @@ const sync = require('child_process').execSync
 const del = require('del')
 const detective = require('detective')
 
+const preup = require(path.join(__dirname, '..', 'package.json'))
+
 const copy = require('./copy')
 const commit = require('./commit.js')()
 
@@ -21,7 +23,7 @@ const rollupFlags = isWatching ? '-wc' : '-c'
 
 const command = `${rollupPath} ${rollupFlags} ${rollupConfig}`
 
-// console.log(command)
+console.log(`preup version ${preup.version}`)
 
 Promise.resolve()
   /**
@@ -49,6 +51,8 @@ Promise.resolve()
     requires.forEach(req => {
       if (pkg.dependencies && pkg.dependencies[req]) {
         release.peerDependencies[req] = pkg.dependencies[req]
+      } else if (pkg.devDependencies && pkg.devDependencies[req]) {
+        release.peerDependencies[req] = pkg.devDependencies[req]
       } else {
         release.peerDependencies[req] = '*'
         console.warn(`Warn: ${req} is not found in package.json deps, assuming * for peerDependency !`)
@@ -57,6 +61,7 @@ Promise.resolve()
     ;['name', 'version', 'description', 'main', 'license'].forEach(field => (release[field] = pkg[field]))
     release.main = `${libraryName}.js`
     release.style = `${libraryName}.css`
+    release.preupVersion = preup.version
     fs.writeFileSync(path.join('dist', 'package.json'), JSON.stringify(release, null, '  '), 'utf-8')
     let publish = false
     ;['major', 'minor', 'patch'].forEach(rel => {
