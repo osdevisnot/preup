@@ -83,4 +83,7 @@ Promise.resolve()
       })
     }
   })
-  .catch(err => console.error(err.stack))
+  .catch(err => {
+    console.error(err.stack)
+    process.exit(1)
+  })
