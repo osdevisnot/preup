@@ -23,6 +23,12 @@ const rollupFlags = isWatching ? '-wc' : '-c'
 
 const command = `${rollupPath} ${rollupFlags} ${rollupConfig}`
 
+const cleanDep = dep =>
+  dep
+    .split('/')
+    .splice(0, 2)
+    .join('/')
+
 console.log(`preup version ${preup.version}`)
 
 Promise.resolve()
@@ -50,11 +56,11 @@ Promise.resolve()
     // mark code dependencies as peer dependencies
     requires.forEach(req => {
       if (pkg.dependencies && pkg.dependencies[req]) {
-        release.peerDependencies[req] = pkg.dependencies[req]
+        release.peerDependencies[cleanDep(req)] = pkg.dependencies[req]
       } else if (pkg.devDependencies && pkg.devDependencies[req]) {
-        release.peerDependencies[req] = pkg.devDependencies[req]
+        release.peerDependencies[cleanDep(req)] = pkg.devDependencies[req]
       } else {
-        release.peerDependencies[req] = '*'
+        release.peerDependencies[cleanDep(req)] = '*'
         console.warn(`Warn: ${req} is not found in package.json deps, assuming * for peerDependency !`)
       }
     })
