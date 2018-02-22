@@ -12,6 +12,7 @@ module.exports = postcss.plugin('postcss-replace', () => {
           node.nodes.map(function(unode) {
             unode.value = unode.value.replace('../../dist/', '')
             unode.value = unode.value.replace('../', '')
+            unode.value = unode.value.replace('../', '')
           })
         }
         return node

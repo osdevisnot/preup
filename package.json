@@ -18,9 +18,9 @@
     "presetup": "npm run clean",
     "setup": "yarn",
     "postsetup": "npm link",
-    "prepub": "npm publish && git push --follow-tags",
-    "pub": "docker build -t osdevisnot/preup .",
-    "postpub": "docker push osdevisnot/preup"
+    "prepub": "npm version patch",
+    "pub": "npm publish",
+    "postpub": "git push --follow-tags"
   },
   "lint-staged": {
     "*.{js,css}": ["prettier --write", "git add"],
