@@ -36,7 +36,7 @@
     "babel-preset-react": "6.24.1",
     "babelrc-rollup": "3.0.0",
     "del": "3.0.0",
-    "detective": "5.0.2",
+    "detective": "5.1.0",
     "postcss-copy-assets": "0.3.1",
     "postcss-unprefix": "2.1.1",
     "postcss-value-parser": "3.3.0",
