@@ -35,7 +35,8 @@ export default {
   output: {
     name: libraryName,
     file: `dist/${libraryName}.js`,
-    format: 'cjs'
+    format: 'cjs',
+    exports: 'named'
   },
   plugins: [
     // Replacements to make TS `import * as ...` work with babel
