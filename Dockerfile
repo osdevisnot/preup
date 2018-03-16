@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:8.9.4-alpine
 
 RUN apk update && apk add --no-cache git && \
   rm -rf /tmp/* /var/lib/apt/lists/* /var/cache/apk/*
