@@ -38,7 +38,7 @@
     "del": "3.0.0",
     "detective": "5.0.2",
     "postcss-copy-assets": "0.3.1",
-    "postcss-unprefix": "2.1.1",
+    "postcss-unprefix": "2.1.2",
     "postcss-value-parser": "3.3.0",
     "rollup": "0.55.5",
     "rollup-load-plugins": "0.3.0",
