@@ -29,6 +29,8 @@ const cleanDep = dep =>
     .splice(0, 2)
     .join('/')
 
+const hasCommand = (pkg.scripts && pkg.scripts.preup) || false
+
 console.log(`preup version ${preup.version}`)
 
 Promise.resolve()
@@ -37,9 +39,19 @@ Promise.resolve()
    */
   .then(_ => del(['dist/*']))
   /**
+   * if we have 'preup' in npm scripts, run those first
+   */
+  .then(_ => hasCommand && sync('npm run preup', { stdio: [0, 1, 2] }))
+  /**
    * Copy current package.json to dist for watch mode
    */
-  .then(_ => isWatching && copy('package.json'))
+  .then(_ => {
+    if (isWatching) {
+      pkg.main = `${libraryName}.js`
+      pkg.style = `${libraryName}.css`
+      fs.writeFileSync(path.join('dist', 'package.json'), JSON.stringify(pkg, null, '  '), 'utf-8')
+    }
+  })
   /**
    * Rollup Compile
    */
