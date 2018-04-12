@@ -57,6 +57,6 @@
     "husky": "0.15.0-rc.2",
     "lint-staged": "7.0.0",
     "npm-sort": "0.0.4",
-    "prettier": "1.11.1"
+    "prettier": "1.12.0"
   }
 }
