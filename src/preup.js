@@ -23,11 +23,18 @@ const rollupFlags = isWatching ? '-wc' : '-c'
 
 const command = `${rollupPath} ${rollupFlags} ${rollupConfig}`
 
-const cleanDep = dep =>
-  dep
-    .split('/')
-    .splice(0, 2)
-    .join('/')
+process.env.NODE_ENV = 'production' // lot many plugins depend on this
+
+const cleanDep = dep => {
+  let cleanedDep = ''
+  const deps = dep.split('/')
+  if (deps[0].includes('@')) {
+    cleanedDep = deps.splice(0, 2).join('/')
+  } else {
+    cleanedDep = deps[0]
+  }
+  return cleanedDep
+}
 
 const hasCommand = (pkg.scripts && pkg.scripts.preup) || false
 
@@ -67,12 +74,15 @@ Promise.resolve()
     const release = { peerDependencies: {} }
     // mark code dependencies as peer dependencies
     requires.forEach(req => {
+      req = cleanDep(req)
       if (pkg.dependencies && pkg.dependencies[req]) {
-        release.peerDependencies[cleanDep(req)] = pkg.dependencies[req]
+        release.peerDependencies[req] = pkg.dependencies[req]
       } else if (pkg.devDependencies && pkg.devDependencies[req]) {
-        release.peerDependencies[cleanDep(req)] = pkg.devDependencies[req]
+        release.peerDependencies[req] = pkg.devDependencies[req]
+      } else if (pkg.peerDependencies && pkg.peerDependencies[req]) {
+        release.peerDependencies[req] = pkg.peerDependencies[req]
       } else {
-        release.peerDependencies[cleanDep(req)] = '*'
+        release.peerDependencies[req] = '*'
         console.warn(`Warn: ${req} is not found in package.json deps, assuming * for peerDependency !`)
       }
     })

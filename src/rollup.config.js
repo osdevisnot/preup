@@ -17,7 +17,7 @@ const plugins = require('./postcss')
  * Package being built and supporting consts
  */
 const pkg = require(path.join(process.cwd(), './package.json'))
-const external = Object.keys(Object.assign({}, pkg.dependencies, pkg.devDependencies))
+const external = Object.keys(Object.assign({}, pkg.dependencies, pkg.devDependencies, pkg.peerDependencies))
 const libraryName = pkg.name.split('/').pop()
 
 /**
@@ -49,6 +49,11 @@ export default {
     $.json({ preferConst: true }),
     // inline images :(
     $.image(),
+    // inline everything else :(
+    $.url({
+      limit: 10 * 1024,
+      include: ['**/*.woff', '**/*.woff2']
+    }),
     $.postcss({
       extract: `dist/${libraryName}.css`,
       plugins

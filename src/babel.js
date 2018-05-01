@@ -21,6 +21,7 @@ module.exports = {
     require.resolve('babel-preset-react')
   ],
   plugins: [
+    [require.resolve('babel-plugin-styled-components')],
     require.resolve('babel-plugin-angularjs-annotate'),
     [
       require.resolve('babel-plugin-transform-object-rest-spread'),
