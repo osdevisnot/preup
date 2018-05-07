@@ -5,4 +5,5 @@ cache:
   yarn: true
 node_js:
   - 8
+  - 10
 script: npm run setup
