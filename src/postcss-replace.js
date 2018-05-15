@@ -11,6 +11,7 @@ module.exports = postcss.plugin('postcss-replace', () => {
         if (node.type === 'function' && node.value === 'url') {
           node.nodes.map(function(unode) {
             unode.value = unode.value.replace('../../dist/', '')
+            unode.value = unode.value.replace('../dist/', '')
             unode.value = unode.value.replace('../', '')
             unode.value = unode.value.replace('../', '')
           })
