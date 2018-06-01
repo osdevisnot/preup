@@ -1,6 +1,6 @@
 {
   "name": "preup",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "license": "MIT",
   "bin": {
     "preup": "./src/preup.js"
