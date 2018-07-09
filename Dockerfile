@@ -1,6 +1,6 @@
-FROM node:8.9.4-alpine
+FROM node:9.11.3-alpine
 
-RUN apk update && apk add --no-cache git python py-pip && \
+RUN apk update && apk add --no-cache git curl python py-pip && \
   pip install --upgrade awscli && \
   apk del py-pip && \
   apk del py-setuptools && \
