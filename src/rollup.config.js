@@ -29,6 +29,8 @@ const htmlMinifierOptions = {
   removeComments: true
 }
 
+const tsHack = pkg.preup.compiler !== 'babel'
+
 export default {
   input: pkg.preup.src,
   external,
@@ -40,7 +42,7 @@ export default {
   },
   plugins: [
     // Replacements to make TS `import * as ...` work with babel
-    $.replace({ '*': 'import', delimiters: ['import ', ' as'] }),
+    $.conditional(tsHack, [$.replace({ '*': 'import', delimiters: ['import ', ' as'] })]),
     // Replacements to consider NODE_ENV optimizations
     $.replace({ 'process.env.NODE_ENV': JSON.stringify('PRODUCTION') }),
     // minify HTML
