@@ -32,11 +32,11 @@ const htmlMinifierOptions = {
   removeComments: true
 }
 
-const tsHack = pkg.preup.compiler !== 'babel'
+const tsHack = (pkg.preup.compiler && pkg.preup.compiler !== 'babel') || true
 
 const rollupPlugins = [
   // Replacements to make TS `import * as ...` work with babel
-  $.conditional(tsHack, [$.replace({ '*': 'import', delimiters: ['import ', ' as'] })]),
+  tsHack && $.replace({ '*': 'import', delimiters: ['import ', ' as'] }),
   // Replacements to consider NODE_ENV optimizations
   $.replace({ 'process.env.NODE_ENV': JSON.stringify('PRODUCTION') }),
   // minify HTML
@@ -68,7 +68,7 @@ const rollupPlugins = [
   $.cleanup({ comments: 'none' }),
   $.license({ banner }),
   $.filesize()
-]
+].filter(Boolean)
 
 let config = {
   input: pkg.preup.src,
