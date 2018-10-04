@@ -1,4 +1,4 @@
-FROM node:9.11.2-alpine
+FROM node:10.11.0-alpine
 
 RUN apk update && apk add --no-cache git curl python py-pip && \
   pip install --upgrade awscli && \
