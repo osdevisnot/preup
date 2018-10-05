@@ -44,7 +44,7 @@
     "rollup-plugin-url": "1.4.0"
   },
   "devDependencies": {
-    "husky": "1.1.0",
+    "husky": "1.1.1",
     "lint-staged": "7.3.0",
     "prettier": "1.14.3",
     "sort-package-json": "1.15.0"
