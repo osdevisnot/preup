@@ -47,7 +47,7 @@
     "husky": "1.1.0",
     "lint-staged": "7.3.0",
     "prettier": "1.14.3",
-    "sort-package-json": "1.15.0"
+    "sort-package-json": "1.16.0"
   },
   "husky": {
     "hooks": {
