@@ -1,19 +1,16 @@
 {
   "name": "preup",
-  "version": "2.0.16",
+  "version": "2.0.17",
   "license": "MIT",
   "bin": {
     "preup": "./src/preup.js"
   },
   "scripts": {
-    "clean": "git clean -fdX",
-    "postclean": "yarn --version || npm install -g yarn",
     "prepub": "npm version patch",
     "pub": "npm publish",
     "postpub": "git push --follow-tags",
-    "presetup": "npm run clean",
-    "setup": "yarn",
-    "postsetup": "npm link"
+    "presetup": "git clean -fdX",
+    "setup": "npm link"
   },
   "dependencies": {
     "babel-core": "6.26.3",
@@ -52,8 +49,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "post-rewrite": "yarn",
-      "post-merge": "yarn"
+      "post-rewrite": "npm link",
+      "post-merge": "npm link"
     }
   },
   "lint-staged": {

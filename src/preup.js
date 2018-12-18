@@ -9,7 +9,7 @@ const detective = require('detective')
 const preup = require(path.join(__dirname, '..', 'package.json'))
 
 const copy = require('./copy')
-const commit = require('./commit.js')()
+// const commit = require('./commit.js')()
 
 const rollupConfig = path.join(__dirname, 'rollup.config.js')
 const rollupPath = path.join(__dirname, '..', 'node_modules', '.bin', 'rollup')
