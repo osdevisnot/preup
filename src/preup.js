@@ -56,6 +56,7 @@ Promise.resolve()
     if (isWatching) {
       pkg.main = `${libraryName}.js`
       pkg.style = `${libraryName}.css`
+      sync('mkdir dist', { stdio: [0, 1, 2] })
       fs.writeFileSync(path.join('dist', 'package.json'), JSON.stringify(pkg, null, '  '), 'utf-8')
     }
   })
