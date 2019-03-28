@@ -1,35 +1,29 @@
 /**
- * Babel Configurations for 2018
+ * Babel Configurations for 2019
  */
-
-const babelHelpers = require('babel-helpers')
 
 module.exports = {
   presets: [
     [
-      require.resolve('babel-preset-env'),
+      require.resolve('@babel/preset-env'),
       {
         targets: {
           browsers: ['last 1 versions']
         },
         useBuiltIns: false,
-        loose: true,
-        modules: false,
-        exclude: ['transform-regenerator', 'transform-es2015-typeof-symbol']
+        loose: true
       }
     ],
-    require.resolve('babel-preset-react')
+    require.resolve('@babel/preset-react')
   ],
   plugins: [
     require.resolve('babel-plugin-angularjs-annotate'),
     [
-      require.resolve('babel-plugin-transform-object-rest-spread'),
+      require.resolve('@babel/plugin-proposal-object-rest-spread'),
       {
         useBuiltIns: true
       }
     ],
-    require.resolve('babel-plugin-external-helpers'),
-    require.resolve('babel-plugin-transform-class-properties')
-  ],
-  externalHelpersWhitelist: babelHelpers.list.filter(helperName => helperName !== 'asyncGenerator')
+    require.resolve('@babel/plugin-proposal-class-properties')
+  ]
 }

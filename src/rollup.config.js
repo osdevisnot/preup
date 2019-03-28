@@ -50,7 +50,7 @@ const rollupPlugins = [
     limit: 10 * 1024,
     include: ['**/*.woff', '**/*.woff2']
   }),
-  $.postcss({
+  $.osdev.postcss({
     extract: `dist/${libraryName}.css`,
     plugins
   }),
