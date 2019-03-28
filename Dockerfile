@@ -1,13 +1,13 @@
-FROM node:10.15.2-alpine
+FROM node:lts-alpine
 
 LABEL maintainer="osdevisnot@gmail.com"
 
 RUN apk update && apk add --no-cache git curl python py-pip && \
-  pip install --upgrade awscli && \
-  rm -rf /tmp/* /var/lib/apt/lists/* /var/cache/apk/*
+  pip install --no-cache-dir --upgrade awscli && \
+  rm -rf /tmp/* ~/.npm ~/.cache/pip /var/lib/apt/lists/* /var/cache/apk/*
 
-RUN git config --global user.email "preup@gmail.com"
-RUN git config --global user.name "preup"
+RUN git config --global user.email "preup@gmail.com" && \
+  git config --global user.name "preup"
 
 WORKDIR /app
 
