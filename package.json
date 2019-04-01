@@ -40,7 +40,7 @@
     "@osdev/rollup-plugin-postcss": "2.0.3",
     "babel-plugin-angularjs-annotate": "0.10.0",
     "babelrc-rollup": "3.0.0",
-    "del": "4.0.0",
+    "del": "4.1.0",
     "detective": "5.2.0",
     "postcss-copy-assets": "0.3.1",
     "postcss-unprefix": "2.1.4",
